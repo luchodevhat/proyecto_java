@@ -1,6 +1,7 @@
 package proyecto;
-
+import java.util.ArrayList;
 import java.lang.Math;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,6 +12,7 @@ public class Jugador {
     private String nombre;
     private static Nave nave1, nave2, nave3, nave4, nave5, nave6;
     private int matrizTablero[][] = new int[6][6];
+
 
     // constructor
     public Jugador(String nombre, Nave nave1, Nave nave2,
@@ -83,11 +85,53 @@ public class Jugador {
     }
 
     // metodos propios del juego
-    public static void llenarTableroM() {
-
+    public static void llenarTableroM(int matriz[][]) {
+        
+        System.out.println("====== Generando tablero de forma"
+                + " manual ======");
+        
+        System.out.println("======NAVE 1======");
+        nave1.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion x de la nave 1"));
+        nave1.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion y de la nave 1"));
+        
+        System.out.println("======NAVE 2======");
+        nave2.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion x de la nave 2"));
+        nave2.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion y de la nave 2"));
+        
+        System.out.println("======NAVE 3======");
+        nave3.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion x de la nave 3"));
+        nave3.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion y de la nave 3"));
+        
+        System.out.println("======NAVE 4======");
+        nave4.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion x de la nave 4"));
+        nave4.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion y de la nave 4"));
+        
+        System.out.println("======NAVE 5======");
+        nave5.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion x de la nave 5"));
+        nave5.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion y de la nave 5"));
+        
+        System.out.println("======NAVE 6======");
+        nave6.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion x de la nave 6"));
+        nave6.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
+                + "posicion y de la nave 6"));
+        
     }
 
     public static void llenarTableroA(int matriz[][]) {
+        ArrayList<Integer> numerosx = new ArrayList<Integer>();
+        ArrayList<Integer> numerosy = new ArrayList<Integer>();
+
         System.out.println("====== Generando tablero de forma"
                 + " automatica ======");
 
@@ -97,7 +141,16 @@ public class Jugador {
                 matriz[x][y] = 0;
             }
         }
-        
+
+        numerosx = generadorNumeros();
+        numerosy = generadorNumeros();
+        colocarPosiciones(nave1, numerosx, numerosy,6);
+        colocarPosiciones(nave2, numerosx, numerosy,5);
+        colocarPosiciones(nave3, numerosx, numerosy,4);
+        colocarPosiciones(nave4, numerosx, numerosy,3);
+        colocarPosiciones(nave5, numerosx, numerosy,2);
+        colocarPosiciones(nave6, numerosx, numerosy,1);
+
     }
 
     public static void imprimirMatriz(int matriz[][]) {
@@ -112,8 +165,32 @@ public class Jugador {
             System.out.println("|");
         }
     }
-    
-    public static int generarNumero() {
-        return 1;
+
+    // genera lista de numeros del 0 a 5 sin repetir en un arraylist
+    public static ArrayList<Integer> generadorNumeros() {
+        int numero;
+        ArrayList<Integer> numeros = new ArrayList<Integer>();
+
+        for (int i = 1; i <= 6; i++) {
+            numero = (int) (Math.random() * 6);
+
+            if (numeros.contains(numero)) {
+                i--;
+            } else {
+                numeros.add(numero);
+            }
+        }
+        return numeros;
+    }
+
+    public static void colocarPosiciones(Nave naveSeleccionada,
+            ArrayList<Integer> numerosx, ArrayList<Integer> numerosy,int tamanio) {
+
+        for (int i = 0; i < tamanio; i++) {
+            naveSeleccionada.posicionCeldaX = numerosx.get(i);
+            numerosx.remove(i);
+            naveSeleccionada.posicionCelday = numerosy.get(i);
+            numerosy.remove(i);
+        }
     }
 }
