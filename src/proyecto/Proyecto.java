@@ -5,9 +5,8 @@ public class Proyecto {
 
 
     public static void main(String[] args) {
-        System.out.println("Hola");
-        System.out.println("Prueba 2");
-        System.out.println("Prueba 12091930");
+        Jugador.datosInicialesJugador1();
+        CPU.datosInicialesJugador2();
     }
     
 }

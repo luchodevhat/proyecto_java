@@ -7,17 +7,17 @@ import javax.swing.JOptionPane;
  *
  * @author Aleja
  */
-public class Jugador {
+public class CPU {
 
-    private static String Jugador1;
+    private static String Jugador2;
     private static Nave nave1, nave2, nave3, nave4, nave5, nave6;
-    private int matrizTablero[][] = new int[6][6];
+    private int matrizTableroCPU[][] = new int[6][6];
 
 
     // constructor
-    public Jugador(String Jugador1, Nave nave1, Nave nave2,
+    public CPU(String Jugador2, Nave nave1, Nave nave2,
             Nave nave3, Nave nave4, Nave nave5, Nave nave6) {
-        this.Jugador1 = Jugador1;
+        this.Jugador2 = Jugador2;
         this.nave1 = nave1;
         this.nave2 = nave2;
         this.nave3 = nave3;
@@ -27,8 +27,8 @@ public class Jugador {
     }
 
     // getters
-    public String getJugador1() {
-        return Jugador1;
+    public String getJugador2() {
+        return Jugador2;
     }
     
     public Nave getNave1() {
@@ -56,8 +56,8 @@ public class Jugador {
     }
 
     // setters
-    public void setJugador1(String Jugador1) {
-        this.Jugador1 = Jugador1;
+    public void setJugador2(String Jugador1) {
+        this.Jugador2 = Jugador1;
     }
 
     public void setNave1(Nave nave1) {
@@ -85,61 +85,16 @@ public class Jugador {
     }
     
     //metodo para pedir datos iniciales
-    public static void datosInicialesJugador1(){
-        Jugador1 = JOptionPane.showInputDialog("Por favor ingrese el nombre del"
-                + " jugador 1: ");
+    public static void datosInicialesJugador2(){
+        Jugador2 = JOptionPane.showInputDialog("Por favor ingrese el nombre del"
+                + " jugador 2: ");
     }
 
-    // metodos propios del juego
-    public static void llenarTableroM(int matriz[][]) {
-        
-        System.out.println("====== Generando tablero de forma"
-                + " manual ======");
-        
-        System.out.println("======NAVE 1======");
-        nave1.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 1"));
-        nave1.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 1"));
-        
-        System.out.println("======NAVE 2======");
-        nave2.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 2"));
-        nave2.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 2"));
-        
-        System.out.println("======NAVE 3======");
-        nave3.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 3"));
-        nave3.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 3"));
-        
-        System.out.println("======NAVE 4======");
-        nave4.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 4"));
-        nave4.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 4"));
-        
-        System.out.println("======NAVE 5======");
-        nave5.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 5"));
-        nave5.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 5"));
-        
-        System.out.println("======NAVE 6======");
-        nave6.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 6"));
-        nave6.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 6"));
-        
-    }
+    
 
-    public static void llenarTableroA(int matriz[][]) {
+    public static void llenarTableroCPU(int matriz[][]) {
         ArrayList<Integer> numerosx = new ArrayList<Integer>();
         ArrayList<Integer> numerosy = new ArrayList<Integer>();
-
-        System.out.println("====== Generando tablero de forma"
-                + " automatica ======");
 
         // se asigna de forma automatica valores 0 a toda la matriz
         for (int x = 0; x < matriz.length; x++) {
@@ -159,7 +114,7 @@ public class Jugador {
 
     }
 
-    public static void imprimirMatriz(int matriz[][]) {
+    public static void imprimirMatrizCPU(int matriz[][]) {
         for (int x = 0; x < matriz.length; x++) {
             System.out.print("|");
             for (int y = 0; y < matriz[x].length; y++) {
