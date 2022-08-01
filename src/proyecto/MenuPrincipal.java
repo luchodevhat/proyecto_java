@@ -11,13 +11,14 @@ public class MenuPrincipal {
 
     //metodo para pedir datos iniciales
     public static void datosInicialesJugadores() {
-        String jugadorNombre;
-
+        String jugadorNombre, nombreCPU;
+        System.out.println("=+=+=+=+=+=+= Bienvenido al juego =+=+=+=+=+=+=");
         jugadorNombre = JOptionPane.showInputDialog("Por favor"
                 + " ingrese el nombre del"
                 + " jugador 1: ");
-        System.out.println("=======Bienvenido " + jugadorNombre + "=======");
-
+        nombreCPU = JOptionPane.showInputDialog("Por favor"
+                + " ingrese el nombre del"
+                + " jugador 2: ");
         Nave nave1 = new Nave();
         Nave nave2 = new Nave();
         Nave nave3 = new Nave();
@@ -29,7 +30,7 @@ public class MenuPrincipal {
 
         Jugador jugador1 = new Jugador(jugadorNombre, nave1, nave2,
                 nave3, nave4, nave5, nave6, tablerJugador);
-        Jugador cpu = new Jugador("Cpu", nave1, nave2, nave3,
+        Jugador cpu = new Jugador(nombreCPU, nave1, nave2, nave3,
                 nave4, nave5, nave6, tableroCpu);
 
         comenzarJuego(jugador1, cpu);
