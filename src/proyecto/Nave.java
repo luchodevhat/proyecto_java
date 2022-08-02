@@ -8,11 +8,11 @@ public class Nave {
     public int posicionCeldaX,posicionCelday;   // CAMBIAR A PRIVATE 
 //    variables
 
-    private String nombre;
-    private int cantidadCeldas;
-    private int Vida;
-    private int CeldaX;
-    private int CeldaY;
+    private static String nombre;
+    private static int cantidadCeldas;
+    private static int Vida;
+    private static int posicionCeldaXu;
+    private static int posicionCeldaY;
 
     //**********************constructor vacio**********************
     public Nave() {
@@ -24,8 +24,8 @@ public class Nave {
         this.nombre = nombre;
         this.cantidadCeldas = cantidadCeldas;
         this.Vida = Vida;
-        this.CeldaX = CeldaX;
-        this.CeldaY = CeldaY;
+        this.posicionCeldaXu = posicionCeldaXu;
+        this.posicionCeldaY = posicionCeldaY;
     }
 
     // **********************getters**********************
@@ -41,11 +41,11 @@ public class Nave {
         return Vida;
     }
 
-    public int getCeldaX() {
-        return CeldaX;
+    public int getposicionCeldaXu() {
+        return posicionCeldaXu;
     }
     public int getCeldaY() {
-        return CeldaY;
+        return posicionCeldaY;
     }
 
     // **********************setters**********************
@@ -61,11 +61,11 @@ public class Nave {
         this.Vida = Vida;
     }
 
-    public void setCeldaX(int CeldaX) {
-        this.CeldaX = CeldaX;
+    public void setposicionCeldaXu(int posicionCeldaXu) {
+        this.posicionCeldaXu = posicionCeldaXu;
     }
     public void setCeldaY(int CeldaY) {
-        this.CeldaY = CeldaY;
+        this.posicionCeldaY = posicionCeldaY;
     }
 
     @Override
@@ -75,8 +75,8 @@ public class Nave {
         sb.append("nombre=").append(nombre);
         sb.append(", cantidadCeldas=").append(cantidadCeldas);
         sb.append(", Vida=").append(Vida);
-        sb.append(", CeldaX=").append(CeldaX);
-        sb.append(", CeldaY=").append(CeldaY);
+        sb.append(", posicionCeldaXu=").append(posicionCeldaXu);
+        sb.append(", posicionCeldaY=").append(posicionCeldaY);
         sb.append('}');
         return sb.toString();
     }
