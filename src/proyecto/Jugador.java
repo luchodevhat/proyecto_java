@@ -12,11 +12,11 @@ public class Jugador {
 
     private static String jugador1;
     private static Nave nave1, nave2, nave3, nave4, nave5, nave6;
-    private static int matriz[][];
+    private static String matriz[][];
 
     // constructor
     public Jugador(String jugador1, Nave nave1, Nave nave2,
-            Nave nave3, Nave nave4, Nave nave5, Nave nave6, int matriz[][]) {
+            Nave nave3, Nave nave4, Nave nave5, Nave nave6, String matriz[][]) {
         this.jugador1 = jugador1;
         this.nave1 = nave1;
         this.nave2 = nave2;
@@ -56,7 +56,7 @@ public class Jugador {
         return nave6;
     }
 
-    public int[][] getMatriz() {
+    public String[][] getMatriz() {
         return matriz;
     }
 
@@ -89,62 +89,74 @@ public class Jugador {
         this.nave6 = nave6;
     }
 
-    public void setMatriz(int matriz[][]) {
+    public void setMatriz(String matriz[][]) {
         this.matriz = matriz;
     }
 
     // metodos propios del juego
-    public static void llenarTableroM(int matriz[][]) {
+    public static void llenarTableroM() {
 
         System.out.println("====== Generando tablero de forma"
                 + " manual ======");
 
         System.out.println("======NAVE 1======");
-        nave1.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 1"));
-        nave1.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 1"));
+        nave1.setPosicionCeldaX(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion x de la nave 1")));
+        nave1.setPosicionCeldaY(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion y de la nave 1")));
 
         System.out.println("======NAVE 2======");
-        nave2.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 2"));
-        nave2.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 2"));
+        nave2.setPosicionCeldaX(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion x de la nave 2"))); 
+        nave2.setPosicionCeldaY(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion y de la nave 2"))); 
 
         System.out.println("======NAVE 3======");
-        nave3.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 3"));
-        nave3.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 3"));
+        nave3.setPosicionCeldaX(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion x de la nave 3"))); 
+        nave3.setPosicionCeldaY(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion y de la nave 3"))); 
 
         System.out.println("======NAVE 4======");
-        nave4.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 4"));
-        nave4.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 4"));
+        nave4.setPosicionCeldaX(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion x de la nave 4")));  
+        nave4.setPosicionCeldaY(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion y de la nave 4")));
 
         System.out.println("======NAVE 5======");
-        nave5.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 5"));
-        nave5.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 5"));
+        nave5.setPosicionCeldaX(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion x de la nave 5")));
+        nave5.setPosicionCeldaY(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion y de la nave 5"))); 
 
         System.out.println("======NAVE 6======");
-        nave6.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion x de la nave 6"));
-        nave6.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
-                + "posicion y de la nave 6"));
+        nave6.setPosicionCeldaX(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion x de la nave 6"))); 
+        nave6.setPosicionCeldaY(Integer.parseInt(JOptionPane.
+                showInputDialog("Ingresa la "
+                + "posicion y de la nave 6")));
 
-        matriz[nave1.posicionCeldaX][nave1.posicionCelday] = 1;
-        matriz[nave2.posicionCeldaX][nave2.posicionCelday] = 1;
-        matriz[nave3.posicionCeldaX][nave3.posicionCelday] = 1;
-        matriz[nave4.posicionCeldaX][nave4.posicionCelday] = 1;
-        matriz[nave5.posicionCeldaX][nave5.posicionCelday] = 1;
-        matriz[nave6.posicionCeldaX][nave6.posicionCelday] = 1;
+        matriz[nave1.getPosicionCeldaX()][nave1.getPosicionCeldaY()] = "X";
+        matriz[nave2.getPosicionCeldaX()][nave2.getPosicionCeldaY()] =  "X";
+        matriz[nave3.getPosicionCeldaX()][nave3.getPosicionCeldaY()] =  "X";
+        matriz[nave4.getPosicionCeldaX()][nave4.getPosicionCeldaY()] =  "X";
+        matriz[nave5.getPosicionCeldaX()][nave5.getPosicionCeldaY()] =  "X";
+        matriz[nave6.getPosicionCeldaX()][nave6.getPosicionCeldaY()] =  "X";
 
     }
 
-    public static void llenarTableroA(int matriz[][]) {
+    public static void llenarTableroA() {
         ArrayList<Integer> numerosx = new ArrayList<Integer>();
         ArrayList<Integer> numerosy = new ArrayList<Integer>();
 
@@ -154,7 +166,7 @@ public class Jugador {
         // se asigna de forma automatica valores 0 a toda la matriz
         for (int x = 0; x < matriz.length; x++) {
             for (int y = 0; y < matriz[x].length; y++) {
-                matriz[x][y] = 0;
+                matriz[x][y] = "O";
             }
         }
 
@@ -166,17 +178,18 @@ public class Jugador {
         colocarPosiciones(nave3, numerosx, numerosy, 3);
         colocarPosiciones(nave4, numerosx, numerosy, 2);
         colocarPosiciones(nave5, numerosx, numerosy, 1);
-        colocarPosiciones(nave6, numerosx, numerosy, 0);
-
-        matriz[nave1.posicionCeldaX][nave1.posicionCelday] = 1;
-        matriz[nave2.posicionCeldaX][nave2.posicionCelday] = 1;
-        matriz[nave3.posicionCeldaX][nave3.posicionCelday] = 1;
-        matriz[nave4.posicionCeldaX][nave4.posicionCelday] = 1;
-        matriz[nave5.posicionCeldaX][nave5.posicionCelday] = 1;
-        matriz[nave6.posicionCeldaX][nave6.posicionCelday] = 1;
+        colocarPosiciones(nave6, numerosx, numerosy, 0);  
+        
+        
+        matriz[nave1.getPosicionCeldaX()][nave1.getPosicionCeldaY()] = "X";
+        matriz[nave2.getPosicionCeldaX()][nave2.getPosicionCeldaY()] = "X";
+        matriz[nave3.getPosicionCeldaX()][nave3.getPosicionCeldaY()] = "X";
+        matriz[nave4.getPosicionCeldaX()][nave4.getPosicionCeldaY()] = "X";
+        matriz[nave5.getPosicionCeldaX()][nave5.getPosicionCeldaY()] = "X";
+        matriz[nave6.getPosicionCeldaX()][nave6.getPosicionCeldaY()] = "X";
     }
 
-    public static void imprimirMatriz(int matriz[][]) {
+    public static void imprimirMatriz(String matriz[][]) {
         for (int x = 0; x < matriz.length; x++) {
             System.out.print("|");
             for (int y = 0; y < matriz[x].length; y++) {
@@ -209,8 +222,21 @@ public class Jugador {
     public static void colocarPosiciones(Nave naveSeleccionada,
             ArrayList<Integer> numerosx, ArrayList<Integer> numerosy,
             int posicion) {
+        int numero1 = numerosx.get(posicion);
+        int numero2 = numerosy.get(posicion);
 
-        naveSeleccionada.posicionCeldaX = numerosx.get(posicion);
-        naveSeleccionada.posicionCelday = numerosy.get(posicion);
+        naveSeleccionada.setPosicionCeldaX(numero1);
+        naveSeleccionada.setPosicionCeldaY(numero2); 
+        System.out.println(naveSeleccionada.getPosicionCeldaX());
     }
 }
+
+
+
+
+
+
+
+
+
+
