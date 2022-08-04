@@ -5,13 +5,14 @@ package proyecto;
  * @author Aleja
  */
 public class Nave {
-    //public int posicionCeldaX,posicionCelday;   // CAMBIAR A PRIVATE 
+
+    public int posicionCeldaX, posicionCelday;   // CAMBIAR A PRIVATE 
 //    variables
 
     private static String nombre;
     private static int cantidadCeldas;
     private static int Vida;
-    private static int posicionCeldaX;
+    private static int posicionCeldaXu;
     private static int posicionCeldaY;
 
     //**********************constructor vacio**********************
@@ -26,7 +27,6 @@ public class Nave {
     }
 
     // **********************getters**********************
-
     public static String getNombre() {
         return nombre;
     }
@@ -40,13 +40,13 @@ public class Nave {
     }
 
     public static int getPosicionCeldaX() {
-        return posicionCeldaX;
+        return posicionCeldaXu;
     }
 
     public static int getPosicionCeldaY() {
         return posicionCeldaY;
     }
-    
+
     // **********************setters**********************
     public static void setNombre(String nombre) {
         Nave.nombre = nombre;
@@ -60,12 +60,11 @@ public class Nave {
         Nave.Vida = Vida;
     }
 
-    public static void setPosicionCeldaX(int posicionCeldaX) {
-        Nave.posicionCeldaX = posicionCeldaX;
+    public static void setPosicionCeldaX(int posicionCeldaXu) {
+        Nave.posicionCeldaXu = posicionCeldaXu;
     }
 
-    
-    public static void setPosicionCeldaY(int posicionCeldaY) {    
+    public static void setPosicionCeldaY(int posicionCeldaY) {
         Nave.posicionCeldaY = posicionCeldaY;
     }
 
