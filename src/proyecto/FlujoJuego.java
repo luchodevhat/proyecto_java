@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class FlujoJuego {
 
-    public static void Menu(Jugador jugador1, Jugador cpu) {
+    public static void Menu(Jugador jugador1, Cpu cpu) {
         int num;
 
         System.out.println("======Tu tablero es el siguiente======");

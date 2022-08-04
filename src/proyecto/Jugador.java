@@ -188,8 +188,8 @@ public class Jugador {
             }
         }
 
-        numerosx = generadorNumerosCPU();
-        numerosy = generadorNumerosCPU();
+        numerosx = generadorNumeros();
+        numerosy = generadorNumeros();
 
         colocarPosiciones(nave1, numerosx, numerosy, 5);
         colocarPosiciones(nave2, numerosx, numerosy, 4);
@@ -237,21 +237,7 @@ public class Jugador {
         }
         return numeros;
     }
-    public static ArrayList<Integer> generadorNumerosCPU() {
-        int numero;
-        ArrayList<Integer> numeros = new ArrayList<Integer>();
-
-        for (int i = 1; i <= 6; i++) {
-            Random r = new Random();
-            numero = (int) r.nextInt(6);
-            if (numeros.contains(numero)) {
-                i--;
-            } else {
-                numeros.add(numero);
-            }
-        }
-        return numeros;
-    }
+   
     public static void colocarPosiciones(Nave naveSeleccionada,
             ArrayList<Integer> numerosx, ArrayList<Integer> numerosy,
             int posicion) {
