@@ -68,16 +68,13 @@ public class Nave {
         Nave.posicionCeldaY = posicionCeldaY;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Nave{");
-        sb.append("nombre=").append(nombre);
-        sb.append(", cantidadCeldas=").append(cantidadCeldas);
-        sb.append(", Vida=").append(Vida);
-        sb.append(", posicionCeldaXu=").append(posicionCeldaX);
-        sb.append(", posicionCeldaY=").append(posicionCeldaY);
-        sb.append('}');
-        return sb.toString();
-    }
+       // **********************Metodos**********************
+    public void iNave() {
+        System.out.println("Nombre:"+nombre);
+        System.out.println("Cantidad de celdas disponibles para"+nombre+cantidadCeldas);
+        System.out.println("Cantidad de vidas para nave"+nombre+Vida);
+        System.out.println("Posiciones seleccionadas en lado X:"+posicionCeldaXu);
+        System.out.println("Posiciones seleccionadas en lado Y:"+posicionCeldaY);
+        
+    }    
 }
