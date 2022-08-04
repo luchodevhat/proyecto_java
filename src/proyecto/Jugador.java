@@ -2,6 +2,7 @@ package proyecto;
 
 import java.util.ArrayList;
 import java.lang.Math;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -10,14 +11,13 @@ import javax.swing.JOptionPane;
  */
 public class Jugador {
 
-    private static String jugador1;
+    private static String nombre;
     private static Nave nave1, nave2, nave3, nave4, nave5, nave6;
     private static String matriz[][];
-
     // constructor
-    public Jugador(String jugador1, Nave nave1, Nave nave2,
+    public Jugador(String nombre, Nave nave1, Nave nave2,
             Nave nave3, Nave nave4, Nave nave5, Nave nave6, String matriz[][]) {
-        this.jugador1 = jugador1;
+        this.nombre = nombre;
         this.nave1 = nave1;
         this.nave2 = nave2;
         this.nave3 = nave3;
@@ -28,8 +28,8 @@ public class Jugador {
     }
 
     // getters
-    public String getJugador1() {
-        return jugador1;
+    public String getnombre() {
+        return nombre;
     }
 
     public Nave getNave1() {
@@ -61,8 +61,8 @@ public class Jugador {
     }
 
     // setters
-    public void setJugador1(String jugador1) {
-        this.jugador1 = jugador1;
+    public void setnombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public void setNave1(Nave nave1) {
@@ -177,7 +177,37 @@ public class Jugador {
         numerosx.clear();
         numerosy.clear();
     }
+    public static void llenarTableroACPU() {
+        ArrayList<Integer> numerosx = new ArrayList<Integer>();
+        ArrayList<Integer> numerosy = new ArrayList<Integer>();
 
+        // se asigna de forma automatica valores 0 a toda la matriz
+        for (int x = 0; x < matriz.length; x++) {
+            for (int y = 0; y < matriz[x].length; y++) {
+                matriz[x][y] = "O";
+            }
+        }
+
+        numerosx = generadorNumerosCPU();
+        numerosy = generadorNumerosCPU();
+
+        colocarPosiciones(nave1, numerosx, numerosy, 5);
+        colocarPosiciones(nave2, numerosx, numerosy, 4);
+        colocarPosiciones(nave3, numerosx, numerosy, 3);
+        colocarPosiciones(nave4, numerosx, numerosy, 2);
+        colocarPosiciones(nave5, numerosx, numerosy, 1);
+        colocarPosiciones(nave6, numerosx, numerosy, 0);
+
+        matriz[nave1.posicionCeldaX][nave1.posicionCelday] = "X";
+        matriz[nave2.posicionCeldaX][nave2.posicionCelday] = "X";
+        matriz[nave3.posicionCeldaX][nave3.posicionCelday] = "X";
+        matriz[nave4.posicionCeldaX][nave4.posicionCelday] = "X";
+        matriz[nave5.posicionCeldaX][nave5.posicionCelday] = "X";
+        matriz[nave6.posicionCeldaX][nave6.posicionCelday] = "X";
+        
+        numerosx.clear();
+        numerosy.clear();
+    }
     public static void imprimirMatriz() {
         for (int x = 0; x < matriz.length; x++) {
             System.out.print("|");
@@ -207,7 +237,21 @@ public class Jugador {
         }
         return numeros;
     }
+    public static ArrayList<Integer> generadorNumerosCPU() {
+        int numero;
+        ArrayList<Integer> numeros = new ArrayList<Integer>();
 
+        for (int i = 1; i <= 6; i++) {
+            Random r = new Random();
+            numero = (int) r.nextInt(6);
+            if (numeros.contains(numero)) {
+                i--;
+            } else {
+                numeros.add(numero);
+            }
+        }
+        return numeros;
+    }
     public static void colocarPosiciones(Nave naveSeleccionada,
             ArrayList<Integer> numerosx, ArrayList<Integer> numerosy,
             int posicion) {
