@@ -40,7 +40,7 @@ public class FlujoJuego {
                     System.out.println("");
                     System.out.println("======Tu tablero es el siguiente"
                             + "======");
-                    jugador1.imprimirMatriz();
+                    cpu.imprimirMatriz();
                     break;
                     
                 case 3:
