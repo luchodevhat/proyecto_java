@@ -10,41 +10,43 @@ public class Nave {
 //    variables
 
     private static String nombre;
-    private static int cantidadCeldas;
+    private static int CantidadCeldas;
     private static int Vida;
-    private static int posicionCeldaXu;
-    private static int posicionCeldaY;
+    private static int PosicionCeldaXu;
+    private static int PosicionCeldaY;
 
     //**********************constructor vacio**********************
     public Nave() {
     }
 
     // **********************constructor con atributos**********************
-    public Nave(String nombre, int cantidadCeldas, int Vida) {
-        this.nombre = nombre;
-        this.cantidadCeldas = cantidadCeldas;
+    public Nave(String Nombre, int CantidadCeldas, int Vida, int PosicionCeldaXu, int PosicionCeldaY) {
+        this.Nombre = Nombre;
+        this.CantidadCeldas = CantidadCeldas;
         this.Vida = Vida;
+        this.PosicionCeldaXu = PosicionCeldaXu
+        this.PosicionCeldaY = PosicionCeldaY
     }
 
     // **********************getters**********************
     public static String getNombre() {
-        return nombre;
+        return Nombre;
     }
 
     public static int getCantidadCeldas() {
-        return cantidadCeldas;
+        return CantidadCeldas;
     }
 
     public static int getVida() {
         return Vida;
     }
 
-    public static int getPosicionCeldaX() {
-        return posicionCeldaXu;
+    public static int getPosicionCeldaXu() {
+        return PosicionCeldaXu;
     }
 
     public static int getPosicionCeldaY() {
-        return posicionCeldaY;
+        return PosicionCeldaY;
     }
 
     // **********************setters**********************
