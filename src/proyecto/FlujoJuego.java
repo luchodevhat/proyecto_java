@@ -40,7 +40,7 @@ public class FlujoJuego {
                     System.out.println("");
                     System.out.println("======Tu tablero es el siguiente"
                             + "======");
-                    jugador1.imprimirMatriz();
+                    cpu.imprimirMatriz();
                     break;
                     
                 case 3:
@@ -68,19 +68,6 @@ public class FlujoJuego {
             }
         }
     }
-
-    public static void verTableroA() {   
-        // se puede borrar
-    }
-
-    public static void verTableroP() {
-        // se puede borrar
-    }
-
-    public static void trampa() {
-        // se puede borrar
-    }
-
     public static void ataqueM() {
 
     }
