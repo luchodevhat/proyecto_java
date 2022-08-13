@@ -20,17 +20,15 @@ public class Nave {
     }
 
     // **********************constructor con atributos**********************
-    public Nave(String Nombre, int CantidadCeldas, int Vida, int PosicionCeldaXu, int PosicionCeldaY) {
-        this.Nombre = Nombre;
+    public Nave(String nombre, int CantidadCeldas, int Vida) {
+        this.nombre = nombre;
         this.CantidadCeldas = CantidadCeldas;
         this.Vida = Vida;
-        this.PosicionCeldaXu = PosicionCeldaXu
-        this.PosicionCeldaY = PosicionCeldaY
     }
 
     // **********************getters**********************
     public static String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public static int getCantidadCeldas() {
@@ -54,22 +52,22 @@ public class Nave {
         Nave.nombre = nombre;
     }
 
-    public static void setCantidadCeldas(int cantidadCeldas) {
-        Nave.cantidadCeldas = cantidadCeldas;
+    public static void setCantidadCeldas(int CantidadCeldas) {
+        Nave.CantidadCeldas = CantidadCeldas;
     }
-
+    
     public static void setVida(int Vida) {
         Nave.Vida = Vida;
     }
 
-    public static void setPosicionCeldaX(int posicionCeldaXu) {
-        Nave.posicionCeldaXu = posicionCeldaXu;
+    public static void setPosicionCeldaXu(int PosicionCeldaXu) {
+        Nave.PosicionCeldaXu = PosicionCeldaXu;
     }
 
-    public static void setPosicionCeldaY(int posicionCeldaY) {
-        Nave.posicionCeldaY = posicionCeldaY;
+    public static void setPosicionCeldaY(int PosicionCeldaY) {
+        Nave.PosicionCeldaY = PosicionCeldaY;
     }
-
+/**
        // **********************Metodos**********************
     public void iNave() {
         System.out.println("Nombre:"+nombre);
@@ -78,5 +76,5 @@ public class Nave {
         System.out.println("Posiciones seleccionadas en lado X:"+posicionCeldaXu);
         System.out.println("Posiciones seleccionadas en lado Y:"+posicionCeldaY);
         
-    }    
+    }     */
 }

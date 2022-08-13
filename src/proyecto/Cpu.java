@@ -14,6 +14,10 @@ public class Cpu {
     private static String nombre;
     private static Nave nave1, nave2, nave3, nave4, nave5, nave6;
     private static String matriz[][];
+    // Estos arrays sirven para marcar posiciones
+    static int filaN[] = {1,2,3,4,5,6};   
+    static String filaL[] = {"A","B","C","D","F","G"};  
+    
     // constructor
     public Cpu(String nombre, Nave nave1, Nave nave2,
             Nave nave3, Nave nave4, Nave nave5, Nave nave6, String matriz[][]) {
@@ -209,7 +213,14 @@ public class Cpu {
         numerosy.clear();
     }
     public static void imprimirMatriz() {
+        System.out.print("   ");
+        for (int i = 0; i < filaN.length; i++) {
+            System.out.print(filaN[i]);
+            System.out.print("\t");
+        }
+        System.out.println("");
         for (int x = 0; x < matriz.length; x++) {
+            System.out.print(filaL[x] + " ");
             System.out.print("|");
             for (int y = 0; y < matriz[x].length; y++) {
                 System.out.print(matriz[x][y]);
