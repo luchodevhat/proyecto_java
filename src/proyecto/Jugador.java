@@ -106,42 +106,60 @@ public class Jugador {
 
         System.out.println("====== Generando tablero de forma"
                 + " manual ======");
+        // se asigna de forma automatica valores 0 a toda la matriz
+        for (int x = 0; x < matriz.length; x++) {
+            for (int y = 0; y < matriz[x].length; y++) {
+                matriz[x][y] = "O";
+            }
+        }
 
         System.out.println("======NAVE 1======");
         nave1.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 1"));
         nave1.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 1"));
+        matriz[nave1.posicionCeldaX][nave1.posicionCelday] = "X";
+        imprimirMatriz();
 
         System.out.println("======NAVE 2======");
         nave2.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 2"));
         nave2.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 2"));
+        matriz[nave2.posicionCeldaX][nave2.posicionCelday] = "X";
+        imprimirMatriz();
 
         System.out.println("======NAVE 3======");
         nave3.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 3"));
         nave3.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 3"));
+        matriz[nave3.posicionCeldaX][nave3.posicionCelday] = "X";
+        imprimirMatriz();
 
         System.out.println("======NAVE 4======");
         nave4.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 4"));
         nave4.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 4"));
+        matriz[nave4.posicionCeldaX][nave4.posicionCelday] = "X";
+        imprimirMatriz();
 
         System.out.println("======NAVE 5======");
         nave5.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 5"));
         nave5.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 5"));
+        matriz[nave5.posicionCeldaX][nave5.posicionCelday] = "X";
+        imprimirMatriz();
 
         System.out.println("======NAVE 6======");
         nave6.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 6"));
         nave6.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 6"));
+        matriz[nave6.posicionCeldaX][nave6.posicionCelday] = "X";
+        imprimirMatriz();
 
         matriz[nave1.posicionCeldaX][nave1.posicionCelday] = "X";
         matriz[nave2.posicionCeldaX][nave2.posicionCelday] = "X";
@@ -157,38 +175,6 @@ public class Jugador {
 
         System.out.println("====== Generando tablero de forma"
                 + " automatica ======");
-
-        // se asigna de forma automatica valores 0 a toda la matriz
-        for (int x = 0; x < matriz.length; x++) {
-            for (int y = 0; y < matriz[x].length; y++) {
-                matriz[x][y] = "O";
-            }
-        }
-
-        numerosx = generadorNumeros();
-        numerosy = generadorNumeros();
-
-        colocarPosiciones(nave1, numerosx, numerosy, 5);
-        colocarPosiciones(nave2, numerosx, numerosy, 4);
-        colocarPosiciones(nave3, numerosx, numerosy, 3);
-        colocarPosiciones(nave4, numerosx, numerosy, 2);
-        colocarPosiciones(nave5, numerosx, numerosy, 1);
-        colocarPosiciones(nave6, numerosx, numerosy, 0);
-
-        matriz[nave1.posicionCeldaX][nave1.posicionCelday] = "X";
-        matriz[nave2.posicionCeldaX][nave2.posicionCelday] = "X";
-        matriz[nave3.posicionCeldaX][nave3.posicionCelday] = "X";
-        matriz[nave4.posicionCeldaX][nave4.posicionCelday] = "X";
-        matriz[nave5.posicionCeldaX][nave5.posicionCelday] = "X";
-        matriz[nave6.posicionCeldaX][nave6.posicionCelday] = "X";
-        
-        numerosx.clear();
-        numerosy.clear();
-    }
-    
-    public static void llenarTableroACPU() {
-        ArrayList<Integer> numerosx = new ArrayList<Integer>();
-        ArrayList<Integer> numerosy = new ArrayList<Integer>();
 
         // se asigna de forma automatica valores 0 a toda la matriz
         for (int x = 0; x < matriz.length; x++) {
