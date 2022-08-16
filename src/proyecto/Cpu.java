@@ -194,13 +194,9 @@ public class Cpu {
     }
         public static void ataqueA() {
         JOptionPane.showMessageDialog(null, "Generando la celda a atacar: ");
-    
-        int filaAtaque = Integer.parseInt(JOptionPane.showInputDialog("Digita "
-                + "la fila que "
-                + "desea atacar: "));
-        int columnaAtaque = Integer.parseInt(JOptionPane.showInputDialog("Digita la fila que "
-                + "desea atacar: "));
-        if(matriz[filaAtaque][columnaAtaque]=="X"){
+         Random r = new Random();
+        int filas = Math.floor(Math.random()*6);//Correggir
+        if(matriz[filas][columnas]=="X"){//corregirr
             JOptionPane.showMessageDialog(null, "Has logrado atacar a una "
                     + "nave");
             JOptionPane.showMessageDialog(null,"La vida de la nave va a ser "
