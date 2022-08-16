@@ -26,10 +26,10 @@ public class FlujoJuego {
                             + " forma automatico"));
                     switch (opcion) {
                         case 1:
-                            ataqueM();
+                            Cpu.ataqueM();
                             break;
                         case 2:
-                            ataqueA();
+                            Cpu.ataqueA();
                             break;
                         default:
                             throw new AssertionError();
@@ -67,12 +67,5 @@ public class FlujoJuego {
                     throw new AssertionError();
             }
         }
-    }
-    public static void ataqueM() {
-
-    }
-
-    public static void ataqueA() {
-
     }
 }

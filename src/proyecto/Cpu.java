@@ -173,4 +173,43 @@ public class Cpu {
         naveSeleccionada.posicionCeldaX = numerosx.get(posicion);
         naveSeleccionada.posicionCelday = numerosy.get(posicion);
     }
+        public static void ataqueM() {
+        int filaAtaque = Integer.parseInt(JOptionPane.showInputDialog("Digita "
+                + "la fila que "
+                + "desea atacar: "));
+        int columnaAtaque = Integer.parseInt(JOptionPane.showInputDialog("Digita la fila que "
+                + "desea atacar: "));
+        if(matriz[filaAtaque][columnaAtaque]=="X"){
+            JOptionPane.showMessageDialog(null, "Has logrado atacar a una "
+                    + "nave");
+            JOptionPane.showMessageDialog(null,"La vida de la nave va a ser "
+                    + "disminuida");
+            //Disminuir vida de nave
+            }
+        else{
+            JOptionPane.showMessageDialog(null, "XXXXXX Ataque fallido XXXXXX");   
+            JOptionPane.showMessageDialog(null, "Haz perdido una vida...");
+            //Dismunuir vida jugador
+            }        
+    }
+        public static void ataqueA() {
+        JOptionPane.showMessageDialog(null, "Generando la celda a atacar: ");
+    
+        int filaAtaque = Integer.parseInt(JOptionPane.showInputDialog("Digita "
+                + "la fila que "
+                + "desea atacar: "));
+        int columnaAtaque = Integer.parseInt(JOptionPane.showInputDialog("Digita la fila que "
+                + "desea atacar: "));
+        if(matriz[filaAtaque][columnaAtaque]=="X"){
+            JOptionPane.showMessageDialog(null, "Has logrado atacar a una "
+                    + "nave");
+            JOptionPane.showMessageDialog(null,"La vida de la nave va a ser "
+                    + "disminuida");
+    }
+          else{
+            JOptionPane.showMessageDialog(null, "XXXXXX Ataque fallido XXXXXX");   
+            JOptionPane.showMessageDialog(null, "Intentalo nuevamente...");
+            } 
+}
+
 }
