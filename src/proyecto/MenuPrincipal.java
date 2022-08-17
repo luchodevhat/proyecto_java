@@ -11,10 +11,11 @@ import javax.swing.JOptionPane;
 public class MenuPrincipal {
 
     //metodo para pedir datos iniciales
-    public static void datosInicialesJugadores() {
+    public void datosInicialesJugadores() {
 
         String tablerJugador[][] = new String[6][6];
         String tableroCpu[][] = new String[6][6];
+        String matrizAtaque[][] = new String[6][6];
 
         // naves para jugador 1
         Nave nave1 = new Nave("Almirante", 1, 4);
@@ -38,7 +39,7 @@ public class MenuPrincipal {
                 + " jugador 1: ");
         
         Jugador jugador1 = new Jugador(nombre1, nave1, nave2,
-                nave3, nave4, nave5, nave6, tablerJugador);
+                nave3, nave4, nave5, nave6, tablerJugador, matrizAtaque);
         
         String nombreCPU = JOptionPane.showInputDialog("Por favor"
                 + " ingrese el nombre del"
@@ -50,7 +51,7 @@ public class MenuPrincipal {
         comenzarJuego(jugador1, cpu);
     }
 
-    public static void comenzarJuego(Jugador jugador1, Cpu cpu) {
+    public void comenzarJuego(Jugador jugador1, Cpu cpu) {
         int preguntaTablero;
 
         System.out.println("=======Bienvenido jugador "+ jugador1.getnombre() 

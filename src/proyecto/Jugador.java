@@ -11,12 +11,13 @@ import javax.swing.JOptionPane;
  */
 public class Jugador {
 
-    private static String nombre;
-    private static Nave nave1, nave2, nave3, nave4, nave5, nave6;
-    private static String matriz[][];
+    private String nombre;
+    private  Nave nave1, nave2, nave3, nave4, nave5, nave6;
+    private String matriz[][];
+    private String matrizAtaque[][];
     // Estos arrays sirven para marcar posiciones
-    static int filaN[] = {1,2,3,4,5,6};   
-    static String filaL[] = {"A","B","C","D","F","G"};  
+    int filaN[] = {1,2,3,4,5,6};   
+    String filaL[] = {"A","B","C","D","F","G"};  
  
 
     public Jugador() {
@@ -24,7 +25,8 @@ public class Jugador {
     
     // constructor
     public Jugador(String nombre, Nave nave1, Nave nave2,
-            Nave nave3, Nave nave4, Nave nave5, Nave nave6, String matriz[][]) {
+            Nave nave3, Nave nave4, Nave nave5, Nave nave6, String matriz[][], 
+            String matrizAtaque[][]) {
         this.nombre = nombre;
         this.nave1 = nave1;
         this.nave2 = nave2;
@@ -33,6 +35,7 @@ public class Jugador {
         this.nave5 = nave5;
         this.nave6 = nave6;
         this.matriz = matriz;
+        this.matrizAtaque = matrizAtaque;
     }
 
     // getters
@@ -68,6 +71,10 @@ public class Jugador {
         return matriz;
     }
 
+    public String[][] getMatrizAtaque() {
+        return matrizAtaque;
+    }
+
     // setters
     public void setnombre(String nombre) {
         this.nombre = nombre;
@@ -101,47 +108,71 @@ public class Jugador {
         this.matriz = matriz;
     }
 
+    public void setMatrizAtaque(String matrizAtaque[][]) {
+        this.matrizAtaque = matrizAtaque;
+    }
+
+
     // metodos propios del juego
-    public static void llenarTableroM() {
+    public void llenarTableroM() {
 
         System.out.println("====== Generando tablero de forma"
                 + " manual ======");
         
+        // se asigna de forma automatica valores 0 a toda la matriz
+        for (int x = 0; x < matriz.length; x++) {
+            for (int y = 0; y < matriz[x].length; y++) {
+                matriz[x][y] = " ";
+            }
+        }
+
         System.out.println("======NAVE 1======");
         nave1.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 1"));
         nave1.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 1"));
-        
+        matriz[nave1.posicionCeldaX][nave1.posicionCelday] = "X";
+        imprimirMatriz();
+
         System.out.println("======NAVE 2======");
         nave2.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 2"));
         nave2.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 2"));
+        matriz[nave2.posicionCeldaX][nave2.posicionCelday] = "X";
+        imprimirMatriz();
 
         System.out.println("======NAVE 3======");
         nave3.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 3"));
         nave3.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 3"));
+        matriz[nave3.posicionCeldaX][nave3.posicionCelday] = "X";
+        imprimirMatriz();
 
         System.out.println("======NAVE 4======");
         nave4.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 4"));
         nave4.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 4"));
+        matriz[nave4.posicionCeldaX][nave4.posicionCelday] = "X";
+        imprimirMatriz();
 
         System.out.println("======NAVE 5======");
         nave5.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 5"));
         nave5.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 5"));
+        matriz[nave5.posicionCeldaX][nave5.posicionCelday] = "X";
+        imprimirMatriz();
 
         System.out.println("======NAVE 6======");
         nave6.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion x de la nave 6"));
         nave6.posicionCelday = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
                 + "posicion y de la nave 6"));
+        matriz[nave6.posicionCeldaX][nave6.posicionCelday] = "X";
+        imprimirMatriz();
 
         
         matriz[nave1.posicionCeldaX][nave1.posicionCelday] = "X";
@@ -152,7 +183,7 @@ public class Jugador {
         matriz[nave6.posicionCeldaX][nave6.posicionCelday] = "X";
     }
 
-    public static void llenarTableroA() {
+    public void llenarTableroA() {
         ArrayList<Integer> numerosx = new ArrayList<Integer>();
         ArrayList<Integer> numerosy = new ArrayList<Integer>();
 
@@ -162,9 +193,15 @@ public class Jugador {
         // se asigna de forma automatica valores 0 a toda la matriz
         for (int x = 0; x < matriz.length; x++) {
             for (int y = 0; y < matriz[x].length; y++) {
-                matriz[x][y] = "O";
+                matriz[x][y] = " ";
             }
         }
+        for (int x = 0; x < matrizAtaque.length; x++) {
+            for (int y = 0; y < matrizAtaque[x].length; y++) {
+                matrizAtaque[x][y] = " ";
+            }
+        }
+        
 
         numerosx = generadorNumeros();
         numerosy = generadorNumeros();
@@ -175,19 +212,21 @@ public class Jugador {
         colocarPosiciones(nave4, numerosx, numerosy, 2);
         colocarPosiciones(nave5, numerosx, numerosy, 1);
         colocarPosiciones(nave6, numerosx, numerosy, 0);
-
-        matriz[nave1.posicionCeldaX][nave1.posicionCelday] = "X";
-        matriz[nave2.posicionCeldaX][nave2.posicionCelday] = "X";
-        matriz[nave3.posicionCeldaX][nave3.posicionCelday] = "X";
-        matriz[nave4.posicionCeldaX][nave4.posicionCelday] = "X";
-        matriz[nave5.posicionCeldaX][nave5.posicionCelday] = "X";
-        matriz[nave6.posicionCeldaX][nave6.posicionCelday] = "X";
+        
+        matriz[nave1.posicionCeldaX][nave1.posicionCelday] = String.valueOf(nave1.getVida());
+        matriz[nave2.posicionCeldaX][nave2.posicionCelday] = String.valueOf(nave2.getVida());
+        matriz[nave3.posicionCeldaX][nave3.posicionCelday] = String.valueOf(nave3.getVida());
+        matriz[nave4.posicionCeldaX][nave4.posicionCelday] = String.valueOf(nave4.getVida());
+        matriz[nave5.posicionCeldaX][nave5.posicionCelday] = String.valueOf(nave5.getVida());
+        matriz[nave6.posicionCeldaX][nave6.posicionCelday] = String.valueOf(nave6.getVida());
         
         numerosx.clear();
         numerosy.clear();
     }
     
-    public static void imprimirMatriz() {
+   
+    
+    public void imprimirMatriz() {
         System.out.print("   ");
         for (int i = 0; i < filaN.length; i++) {
             System.out.print(filaN[i]);
@@ -206,9 +245,28 @@ public class Jugador {
             System.out.println("|");
         }
     }
-
+    public void imprimirMatrizAtaque(){
+        System.out.print("   ");
+        for (int i = 0; i < filaN.length; i++) {
+            System.out.print(filaN[i]);
+            System.out.print("\t");
+        }
+        System.out.println("");
+        for (int x = 0; x < matrizAtaque.length; x++) {
+            System.out.print(filaL[x] + " ");
+            System.out.print("|");
+            for (int y = 0; y < matrizAtaque[x].length; y++) {
+                System.out.print(matrizAtaque[x][y]);
+                if (y != matrizAtaque[x].length - 1) {
+                    System.out.print("\t");
+                }
+            }
+            System.out.println("|");
+        }
+    }
+       
     // genera lista de numeros del 0 a 5 sin repetir en un arraylist
-    public static ArrayList<Integer> generadorNumeros() {
+    public ArrayList<Integer> generadorNumeros() {
         int numero;
         ArrayList<Integer> numeros = new ArrayList<Integer>();
 
@@ -224,7 +282,7 @@ public class Jugador {
         return numeros;
     }
    
-    public static void colocarPosiciones(Nave naveSeleccionada,
+    public void colocarPosiciones(Nave naveSeleccionada,
             ArrayList<Integer> numerosx, ArrayList<Integer> numerosy,
             int posicion) {
 

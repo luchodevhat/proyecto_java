@@ -9,11 +9,11 @@ public class Nave {
     public int posicionCeldaX, posicionCelday;   // CAMBIAR A PRIVATE 
 //    variables
 
-    private static String nombre;
-    private static int CantidadCeldas;
-    private static int Vida;
-    private static int PosicionCeldaXu;
-    private static int PosicionCeldaY;
+    private String nombre;
+    private int CantidadCeldas;
+    private int Vida;
+    private int PosicionCeldaXu;
+    private int PosicionCeldaY;
 
     //**********************constructor vacio**********************
     public Nave() {
@@ -27,45 +27,45 @@ public class Nave {
     }
 
     // **********************getters**********************
-    public static String getNombre() {
+    public String getNombre() {
         return nombre;
     }
 
-    public static int getCantidadCeldas() {
+    public int getCantidadCeldas() {
         return CantidadCeldas;
     }
 
-    public static int getVida() {
+    public int getVida() {
         return Vida;
     }
 
-    public static int getPosicionCeldaXu() {
+    public int getPosicionCeldaXu() {
         return PosicionCeldaXu;
     }
 
-    public static int getPosicionCeldaY() {
+    public int getPosicionCeldaY() {
         return PosicionCeldaY;
     }
 
     // **********************setters**********************
-    public static void setNombre(String nombre) {
-        Nave.nombre = nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public static void setCantidadCeldas(int CantidadCeldas) {
-        Nave.CantidadCeldas = CantidadCeldas;
+    public void setCantidadCeldas(int CantidadCeldas) {
+        this.CantidadCeldas = CantidadCeldas;
     }
     
-    public static void setVida(int Vida) {
-        Nave.Vida = Vida;
+    public void setVida(int Vida) {
+        this.Vida = Vida;
     }
 
-    public static void setPosicionCeldaXu(int PosicionCeldaXu) {
-        Nave.PosicionCeldaXu = PosicionCeldaXu;
+    public void setPosicionCeldaXu(int PosicionCeldaXu) {
+        this.PosicionCeldaXu = PosicionCeldaXu;
     }
 
-    public static void setPosicionCeldaY(int PosicionCeldaY) {
-        Nave.PosicionCeldaY = PosicionCeldaY;
+    public void setPosicionCeldaY(int PosicionCeldaY) {
+        this.PosicionCeldaY = PosicionCeldaY;
     }
 /**
        // **********************Metodos**********************
