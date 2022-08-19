@@ -138,6 +138,7 @@ public class FlujoJuego {
                 ganador = jugador1.getnombre();
             }
             if (contadorCpu == 13) {
+                verificador = true;
                 ganador = cpu.getnombre();
             }
         }
