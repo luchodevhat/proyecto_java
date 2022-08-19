@@ -7,6 +7,9 @@ public class FlujoJuego {
     public void Menu(Jugador jugador1, Cpu cpu) {
         int num;
         boolean verificador = false;
+        int contadorJugador = 0;   // sirve para verificar si el jugador gana
+        int contadorCpu = 0;       // sirve para verificar si el cpu gana
+        String ganador = "";  // sirve para guardar quien es el ganador
 
         System.out.println("======Tu tablero es el siguiente======");
         jugador1.imprimirMatriz();  
@@ -35,6 +38,7 @@ public class FlujoJuego {
                         if (cpu.getMatriz()[posicionX][posicionY].equals(" ")) {
                             cpu.getMatriz()[posicionX][posicionY] = "X";
                             jugador1.getMatrizAtaque()[posicionX][posicionY] = "X";
+                            
                         }else if ( jugador1.getMatrizAtaque()[posicionX][posicionY].equals("*")) {
                             System.out.println("Hay una nave destruida, elija otra");
                         }
@@ -49,11 +53,13 @@ public class FlujoJuego {
                             if (numVidas - 1 == 0){
                                 cpu.getMatriz()[posicionX][posicionY] = "*";
                                 jugador1.getMatrizAtaque()[posicionX][posicionY] = "*";
+                                contadorJugador++;
                             }
                             //se le resta a la cantidad de vidas
                             else{
                                 numVidas = numVidas -1;
                                 cpu.getMatriz()[posicionX][posicionY] = String.valueOf(numVidas);
+                                contadorJugador++;
                             }
                         }
                     }
@@ -71,21 +77,23 @@ public class FlujoJuego {
                         if (jugador1.getMatriz()[xrandom][yrandom].equals(" ")) {
                             jugador1.getMatriz()[xrandom][yrandom] = "X";
 
-                        } else if (cpu.getMatriz()[xrandom][yrandom].equals("*")) {
+                        } else if (jugador1.getMatriz()[xrandom][yrandom].equals("*")) {
                             System.out.println("El CPU ha destruido tu nave!!!");
                         } else if (jugador1.getMatriz()[xrandom][yrandom].equals( "X")) {
                             System.out.println("El CPU fallo el ataque");
                         } else {
-                            int numVidas;
-                            numVidas = Integer.parseInt(
-                                    cpu.getMatriz()[posicionX][posicionY]);
-                            if (numVidas - 1 == 0) {
+                            int numVidas2;
+                            numVidas2 = Integer.parseInt(
+                                    jugador1.getMatriz()[posicionX][posicionY]);
+                            if (numVidas2 - 1 == 0) {
                                 jugador1.getMatriz()[posicionX][posicionY] = "*";
+                                contadorCpu++;
                           
                             } //se le resta a la cantidad de vidas
                             else {
-                                numVidas = numVidas - 1;
-                                jugador1.getMatriz()[posicionX][posicionY] = String.valueOf(numVidas);
+                                numVidas2 = numVidas2 - 1;
+                                jugador1.getMatriz()[posicionX][posicionY] = String.valueOf(numVidas2);
+                                contadorCpu++;
                             }
                         }
                     }
@@ -93,33 +101,6 @@ public class FlujoJuego {
                     System.out.println("El CPU ha atacado tu tablero!!!");
                     System.out.println("Revisa tu tripulacion!!!");
 
-                    boolean verificador2 = true;
-                    for (int x = 0; x < cpu.getMatriz().length; x++) {
-                        for (int y = 0; y < cpu.getMatriz()[x].length; y++) {
-                            if (cpu.getMatriz()[x][y].equals("1")) {
-                                verificador2 = true;
-                            } else if (cpu.getMatriz()[x][y].equals("2")) {
-                                verificador2 = true;                                      // Hacer que el proceso de ganar funcione
-                            } else if (cpu.getMatriz()[x][y].equals("3")) {
-                                verificador2 = true;
-                            } else if (cpu.getMatriz()[x][y].equals("4")) {
-                                verificador2 = true;
-                            } else {
-                                verificador2 = false;
-                            }
-                        }
-                    }
-
-                    if (verificador2 == false) {
-                        System.out.println("Felicidades has ganado!!!!");
-                        break;
-                    } else if(verificador2 == true) {
-                        System.out.println("Todavia no has ganado, el juego continua");
-                    }
-                    
-                    
-                    
-                    
                 case 2:
                     System.out.println("");
                     System.out.println("======Tu tablero de ataque es el siguiente"
@@ -151,13 +132,21 @@ public class FlujoJuego {
                 default:
                     throw new AssertionError();
             }
+            
+            if (contadorJugador == 13) {
+                verificador = true;
+                ganador = jugador1.getnombre();
+            }
+            if (contadorCpu == 13) {
+                ganador = cpu.getnombre();
+            }
+        }
+        
+        if (ganador == jugador1.getnombre()) {
+            System.out.println("===========Felicidades has ganado===========");
+        }
+        if (ganador == cpu.getnombre()) {
+            System.out.println("===========Te han ganado lo siento===========");
         }
     }
 }
-
-
-
-
-
-
-

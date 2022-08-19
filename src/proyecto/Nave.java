@@ -67,14 +67,4 @@ public class Nave {
     public void setPosicionCeldaY(int PosicionCeldaY) {
         this.PosicionCeldaY = PosicionCeldaY;
     }
-/**
-       // **********************Metodos**********************
-    public void iNave() {
-        System.out.println("Nombre:"+nombre);
-        System.out.println("Cantidad de celdas disponibles para nave:"+nombre+cantidadCeldas);
-        System.out.println("Cantidad de vidas para nave:"+nombre+Vida);
-        System.out.println("Posiciones seleccionadas en lado X:"+posicionCeldaXu);
-        System.out.println("Posiciones seleccionadas en lado Y:"+posicionCeldaY);
-        
-    }     */
 }
