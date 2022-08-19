@@ -125,6 +125,11 @@ public class Jugador {
                 matriz[x][y] = " ";
             }
         }
+        for (int x = 0; x < matrizAtaque.length; x++) {
+            for (int y = 0; y < matrizAtaque[x].length; y++) {
+                matrizAtaque[x][y] = " ";
+            }
+        }
 
         System.out.println("======NAVE 1======");
         nave1.posicionCeldaX = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la "
