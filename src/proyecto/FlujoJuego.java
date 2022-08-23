@@ -84,15 +84,15 @@ public class FlujoJuego {
                         } else {
                             int numVidas2;
                             numVidas2 = Integer.parseInt(
-                                    jugador1.getMatriz()[posicionX][posicionY]);
+                                    jugador1.getMatriz()[xrandom][yrandom]);
                             if (numVidas2 - 1 == 0) {
-                                jugador1.getMatriz()[posicionX][posicionY] = "*";
+                                jugador1.getMatriz()[xrandom][yrandom] = "*";
                                 contadorCpu++;
                           
                             } //se le resta a la cantidad de vidas
                             else {
                                 numVidas2 = numVidas2 - 1;
-                                jugador1.getMatriz()[posicionX][posicionY] = String.valueOf(numVidas2);
+                                jugador1.getMatriz()[xrandom][yrandom] = String.valueOf(numVidas2);
                                 contadorCpu++;
                             }
                         }
