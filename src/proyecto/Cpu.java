@@ -119,12 +119,18 @@ public class Cpu {
         colocarPosiciones(nave5, numerosx, numerosy, 1);
         colocarPosiciones(nave6, numerosx, numerosy, 0);
 
-        matriz[nave1.posicionCeldaX][nave1.posicionCelday] = String.valueOf(nave1.getVida());
-        matriz[nave2.posicionCeldaX][nave2.posicionCelday] = String.valueOf(nave2.getVida());
-        matriz[nave3.posicionCeldaX][nave3.posicionCelday] = String.valueOf(nave3.getVida());
-        matriz[nave4.posicionCeldaX][nave4.posicionCelday] = String.valueOf(nave4.getVida());
-        matriz[nave5.posicionCeldaX][nave5.posicionCelday] = String.valueOf(nave5.getVida());
-        matriz[nave6.posicionCeldaX][nave6.posicionCelday] = String.valueOf(nave6.getVida());
+        matriz[nave1.posicionCeldaX][nave1.posicionCelday] =
+                String.valueOf(nave1.getVida());
+        matriz[nave2.posicionCeldaX][nave2.posicionCelday] =
+                String.valueOf(nave2.getVida());
+        matriz[nave3.posicionCeldaX][nave3.posicionCelday] = 
+                String.valueOf(nave3.getVida());
+        matriz[nave4.posicionCeldaX][nave4.posicionCelday] = 
+                String.valueOf(nave4.getVida());
+        matriz[nave5.posicionCeldaX][nave5.posicionCelday] = 
+                String.valueOf(nave5.getVida());
+        matriz[nave6.posicionCeldaX][nave6.posicionCelday] = 
+                String.valueOf(nave6.getVida());
 
         numerosx.clear();
         numerosy.clear();

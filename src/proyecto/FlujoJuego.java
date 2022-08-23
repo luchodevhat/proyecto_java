@@ -30,19 +30,22 @@ public class FlujoJuego {
                     posicionY = Integer.parseInt(JOptionPane.showInputDialog(""
                             + "Por favor indique la posicion de ataque Y: "));
                     
-                    // revisar que el ataque se encuentro dentro de la matriz
+                    
                     
                     if (posicionX < 6 && posicionY < 6) {
                         
-                        //revisar que fallo ataque
                         if (cpu.getMatriz()[posicionX][posicionY].equals(" ")) {
                             cpu.getMatriz()[posicionX][posicionY] = "X";
-                            jugador1.getMatrizAtaque()[posicionX][posicionY] = "X";
+                            jugador1.getMatrizAtaque()
+                                    [posicionX][posicionY] = "X";
                             
-                        }else if ( jugador1.getMatrizAtaque()[posicionX][posicionY].equals("*")) {
-                            System.out.println("Hay una nave destruida, elija otra");
+                        }else if ( jugador1.getMatrizAtaque()[posicionX]
+                                [posicionY].equals("*")) {
+                            System.out.println("Hay una nave destruida,"
+                                    + " elija otra");
                         }
-                        else if( jugador1.getMatrizAtaque()[posicionX][posicionY].equals( "X")){
+                        else if( jugador1.getMatrizAtaque()[posicionX]
+                                [posicionY].equals( "X")){
                             System.out.println("Se fallo el ataque, por favor "
                                     + "elija otro lugar");
                         }
@@ -52,13 +55,15 @@ public class FlujoJuego {
                                     cpu.getMatriz()[posicionX][posicionY]);
                             if (numVidas - 1 == 0){
                                 cpu.getMatriz()[posicionX][posicionY] = "*";
-                                jugador1.getMatrizAtaque()[posicionX][posicionY] = "*";
+                                jugador1.getMatrizAtaque()[posicionX][posicionY]
+                                        = "*";
                                 contadorJugador++;
                             }
                             //se le resta a la cantidad de vidas
                             else{
                                 numVidas = numVidas -1;
-                                cpu.getMatriz()[posicionX][posicionY] = String.valueOf(numVidas);
+                                cpu.getMatriz()[posicionX][posicionY] 
+                                        = String.valueOf(numVidas);
                                 contadorJugador++;
                             }
                         }
@@ -73,13 +78,15 @@ public class FlujoJuego {
                     int yrandom = (int) (Math.floor(Math.random()*6));
 
                     if (xrandom < 6 && yrandom < 6) {
-                        //revisar que fallo ataque
+                        
                         if (jugador1.getMatriz()[xrandom][yrandom].equals(" ")) {
                             jugador1.getMatriz()[xrandom][yrandom] = "X";
 
-                        } else if (jugador1.getMatriz()[xrandom][yrandom].equals("*")) {
+                        } else if (jugador1.getMatriz()[xrandom][yrandom].
+                                equals("*")) {
                             System.out.println("El CPU ha destruido tu nave!!!");
-                        } else if (jugador1.getMatriz()[xrandom][yrandom].equals( "X")) {
+                        } else if (jugador1.getMatriz()[xrandom][yrandom].
+                                equals( "X")) {
                             System.out.println("El CPU fallo el ataque");
                         } else {
                             int numVidas2;
@@ -92,7 +99,8 @@ public class FlujoJuego {
                             } //se le resta a la cantidad de vidas
                             else {
                                 numVidas2 = numVidas2 - 1;
-                                jugador1.getMatriz()[xrandom][yrandom] = String.valueOf(numVidas2);
+                                jugador1.getMatriz()[xrandom][yrandom] = 
+                                        String.valueOf(numVidas2);
                                 contadorCpu++;
                             }
                         }
@@ -103,7 +111,8 @@ public class FlujoJuego {
 
                 case 2:
                     System.out.println("");
-                    System.out.println("======Tu tablero de ataque es el siguiente"
+                    System.out.println("======Tu tablero de ataque es "
+                            + "el siguiente"
                             + "======");
                     jugador1.imprimirMatrizAtaque();   
                     break;
